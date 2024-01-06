@@ -4,7 +4,7 @@ const swaggerDocument = require("./swagger"); // Está importando o arquivo swag
 
 const app = express(); // Está executando/inicializando o express e armazenando na variável app.
 
-const PORT = process.env.PORT || 3000; // Está criando uma variável com a porta do servidor para o site de hospedagem utilizado ou se der erro, ele irá utilizar a porta 8080.
+const PORT = process.env.PORT || 3000; // Está criando uma variável com a porta do servidor para o site de hospedagem utilizado ou se der erro, ele irá utilizar a porta 3000.
 
 // O use é responsável por adicionar um plugin no express, ele recebe um parâmetro que é o plugin.
 app.use(express.json()); // Está adicionando o plugin json no express.
@@ -25,4 +25,4 @@ app.use(
   swaggerUi.setup(swaggerDocument, options),
 );
 
-require("./src/routes/endpoints")(app); // Está importando o arquivo endpoints.js e passando o app como parâmetro.
+require("./src/routes/endpoints")(app); // Está importando o arquivo endpoints.js e passando o app como parâmetro, fazendo isso o app estará disponível no arquivo endpoints.js.
