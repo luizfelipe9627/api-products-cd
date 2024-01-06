@@ -9,7 +9,7 @@
   <img src="https://img.shields.io/static/v1?label=Author&message=Luiz%20Felipe%20Silva&color=blue&style=for-the-badge"/>
 </div>
 
-<img src="./assets/swagger.png" alt="Swagger" width="100%"/>
+<img src="./src/assets/swagger.png" alt="Swagger" width="100%"/>
 
 ## Sumário
 
