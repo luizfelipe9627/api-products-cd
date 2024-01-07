@@ -1,3 +1,6 @@
+const path = require("path"); // Está importando o módulo path do node.js, que é responsável por lidar com caminhos de arquivos e diretórios.
+const express = require("express"); // Está importando o módulo express pelo Node.js para a variável express.
+
 module.exports = (app) => {
   /* 
     - GET: Buscar/obter uma ou mais informações do back-end.
@@ -35,9 +38,17 @@ module.exports = (app) => {
     },
   ];
 
-  // Irá obter a rota e retornar uma mensagem.
+  // O use é responsável por adicionar um plugin no express, ele recebe um parâmetro que é o plugin.
+  app.use(express.json()); // Está adicionando o plugin json no express, ele é responsável por converter o corpo da requisição para json.
+
+  app.use(express.static(path.join(__dirname, "../../public"))); // Está falando para o express que a pasta public é a pasta de arquivos estáticos.
+
+  // Irá obter a rota e retornar o arquivo index.html.
   app.get("/", (req, res) => {
-    return res.send("Projeto API - Node.js"); // Está retornando como resposta uma mensagem.
+    const index = path.join(__dirname, "../../public/index.html"); // Está criando uma variável com o caminho do arquivo index.html.
+    const css = path.join(__dirname, "../../public/css/style.css"); // Está criando uma variável com o caminho do arquivo style.css.
+
+    return res.sendFile(index, css); // Está retornando o arquivo index.html.
   });
 
   // Irá obter os produtos e retornar os produtos.
